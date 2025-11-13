@@ -1,0 +1,11 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{3}{}%
+\contentsline {section}{\numberline {2}Arquitectura de la app}{4}{}%
+\contentsline {section}{\numberline {3}APP Móvil}{7}{}%
+\contentsline {section}{\numberline {4}APP Escritorio}{10}{}%
+\contentsline {section}{\numberline {5}API Rest}{11}{}%
+\contentsline {subsection}{\numberline {5.1}Flujo de la API con las APPs}{11}{}%
+\contentsline {subsection}{\numberline {5.2}Componentes}{12}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}Models/}{13}{}%
+\contentsline {section}{\numberline {6}Conclusión}{14}{}%
+\contentsline {section}{\numberline {7}Bibliografía}{15}{}%

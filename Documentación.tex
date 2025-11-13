@@ -1,0 +1,299 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{tcolorbox}
+\usepackage{listings}
+
+
+
+
+\title{Documentación Taco Paco}
+\author{Santi Martínez}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    lstset{languaje=Javascript}
+    \newpage
+    \tableofcontents
+
+    \newpage
+    \section{Introducción}
+        Taco Paco es una aplicación de comida rápida en la que el cliente puede reservar su mesa, y a partir de ahí seleccionar sus productos favoritos.
+        \\\\
+        La app de escritorio forma parte únicamente del establecimiento, ya que su funcionalidad radica en cobrar pedidos y liberar las mesas. Gracias a ello podrá ver también las mesas libres y las ocupadas.
+        \\\\
+        Ambas se conectan entre sí a través de una API Rest elaborada con express y mongoose, el último para guardar y editar los cambios en Mongo Atlas, la base de datos de la aplicación.
+
+    \newpage
+    \section{Arquitectura de la app}
+        \subsection*{\underline{Diagrama de flujo}}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/Diagrama-flujo.png}
+                \caption{Diagrama de flujo}
+            \end{figure}
+        \newpage
+        \subsection*{\underline{Diagrama de grafo}}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/Diagrama-grafo.png}
+                \caption{Diagrama de grafo}
+            \end{figure}
+
+        \newpage
+        \subsection*{\underline{Diagrama de casos de uso}}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=1.0\textwidth]{images/Diagrama-casos-de-uso.png}
+                \caption{Diagrama de casos de uso}
+            \end{figure}
+
+    \newpage
+    \section{APP Móvil}
+        \subsection*{Estructura de la app}
+        \begin{itemize}
+            \item app/
+            \begin{itemize}
+                \item sampledata/
+                \item manifest/
+                \begin{itemize}
+                    \item \texttt{AndroidManifest}
+                \end{itemize}
+                \item kotlin+java/
+                \begin{itemize}
+                    \item \textbf{activities/}
+                    \begin{itemize}
+                        \item \texttt{Carta}
+                        \item \texttt{EleccionMesa}
+                        \item \texttt{MainActivity}
+                    \end{itemize}
+                    \item \textbf{clases/}
+                    \begin{itemize}
+                        \item \texttt{Mesa}
+                        \item \texttt{Pedido}
+                    \end{itemize}
+                    \item \textbf{servicios/}
+                    \begin{itemize}
+                        \item \texttt{Api}
+                        \item \texttt{RetrofitClient}
+                    \end{itemize}
+                \end{itemize}
+                \item java (generated)/
+                \item resources/
+                \begin{itemize}
+                    \item \textbf{drawable/}
+                    \item \textbf{layout/}
+                    \begin{itemize}
+                        \item \texttt{carta}
+                        \item \texttt{eleccion mesa}
+                        \item \texttt{inicio}
+                    \end{itemize}
+                    \item \textbf{mipmap/}
+                    \item \textbf{values/}
+                    \item \textbf{xml/}
+                \end{itemize}
+                \item resources (generated)/
+            \end{itemize}
+            \item Gradle Scripts/
+        \end{itemize}
+
+        \newpage
+        \subsection*{Imágenes de la app}
+
+            % == Pantalla de inicio ==
+            \begin{minipage}{.5\textwidth}
+                \vspace{0.5cm}
+                \textbf{\begin{center}Pantalla principal\end{center}}
+                \vspace{0.5cm}
+
+                Primera pantalla que se encuentra el usuario al iniciarl la app, la única funcionalidad que tiene es la que le da el botón \textbf{Entrar}, el cual como su nombre indica, sirve para entrar en el siguiente menú de la app.
+                \vspace{0.5cm}
+
+                En la pantalla se encuentra el nombre de la empresa junto a su año en la que se fundó. También el botón de entrar que es el encargado de cambiar entre activities.
+            \end{minipage}
+            \hspace{1cm}
+            \begin{minipage}{.4\textwidth}
+                \includegraphics[scale=0.3]{images/pantalla_principal.png}
+            \end{minipage}
+
+            % == Pantalla de mesas (TODAS LIBRES) ==
+            \begin{minipage}{.4\textwidth}
+                \includegraphics[scale=0.3]{images/pantalla_mesas.png}
+            \end{minipage}
+            \begin{minipage}{.5\textwidth}
+                \vspace{0.5cm}
+                \textbf{\begin{center}CASO 1: Todas las mesas libres\end{center}}
+                \vspace{0.5cm}
+
+                Esta es la pantalla en la que se muestran las mesas disponibles del establecimiento. Se trata de un menú con 5 mesas:
+                \begin{itemize}
+                    \item 3 interiores
+                    \item 2 terraza
+                \end{itemize}
+                Esta diferenciación se encuentra en la parte baja de la pantalla, la cual se destaca con dos colores diferentes.
+
+                En pantalla se encuentran los botones que llevan a los activities de sus respectivas mesas y un botón para volver al activity anterior.
+            \end{minipage}
+
+            % == Pantalla de mesas (CON OCUPADAS) ==
+            \begin{minipage}{.5\textwidth}
+                \vspace{0.5cm}
+                \textbf{\begin{center}CASO 2: Mesas ocupadas\end{center}}
+                \vspace{0.5cm}
+
+                Mismo funcionamiento que en el caso anterior, pero sin embargo en esta pantalla se pueden apreciar que tanto la \textbf{Mesa 3} como la \textbf{Mesa 4}, se encuentran ocupadas.
+                
+                La app no va a permitir su ocupación ni utilización de las mismas, es decir, quedan bloqueadas hasta que desde la APP-Escritorio se libreren cobrando el pedido a los clientes.
+            \end{minipage}
+            \hspace{1cm}
+            \begin{minipage}{.4\textwidth}
+                \includegraphics[scale=0.3]{images/pantalla_mesas_ocupadas.png}
+            \end{minipage}
+
+            % == CARTA ==
+            \begin{minipage}{.4\textwidth}
+                \includegraphics[scale=0.3]{images/pantalla_carta.png}
+            \end{minipage}
+            \begin{minipage}{.5\textwidth}
+                \vspace{0.5cm}
+                \textbf{\begin{center}Carta\end{center}}
+                \vspace{0.5cm}
+
+                Esta es la pantalla en la que se muestran las mesas disponibles del establecimiento. Se trata de un menú con 5 mesas:
+                \begin{itemize}
+                    \item 3 interiores
+                    \item 2 terraza
+                \end{itemize}
+                Esta diferenciación se encuentra en la parte baja de la pantalla, la cual se destaca con dos colores diferentes.
+
+                En pantalla se encuentran los botones que llevan a los activities de sus respectivas mesas y un botón para volver al activity anterior.
+            \end{minipage}
+
+        
+    \newpage
+    \section{APP Escritorio}
+        % == Pantalla inicio de APP Escritorio ==
+        \begin{minipage}{.5\textwidth}
+            \vspace{0.5cm}
+            \textbf{\begin{center}Inicio app\end{center}}
+            \vspace{0.5cm}
+
+            Esta es la pantalla inicial de la app escritorio, en la que el pulsar en \textbf{Entrar}, abre el siguiente activity.
+
+            Cabe decir que es una app únicamente para el establecimiento de Taco Paco, ya que sus posibles usos son:
+            \begin{itemize}
+                \item Establecer un control de qué mesas están o no disponibles
+                \item En caso de que no estén disponibles, se les puede cobrar su pedido desde esta app, lo que libera a conticuación la mesa
+            \end{itemize}
+        \end{minipage}
+        \hspace{1cm}
+        \begin{minipage}{.4\textwidth}
+            \includegraphics[scale=0.1]{images/escritorio-principal.png}
+        \end{minipage}
+
+        % == Pantalla mesas ==
+        \begin{minipage}{.5\textwidth}
+            \vspace{0.5cm}
+            \textbf{\begin{center}Control de mesas. CASO 1: Todas libres\end{center}}
+            \vspace{0.5cm}
+
+            Esta pantalla es la principal de la app. Como se puede observar contiene como contenido prioritario las 5 mesas des establecimiento. En este caso no hay ninguna mesa con un pedido pendiente.
+    
+        \end{minipage}
+        \hspace{1cm}
+        \begin{minipage}{.4\textwidth}
+            \includegraphics[scale=0.1]{images/escritorio-mesas.png}
+        \end{minipage}
+
+        % == Pantalla mesas ocupadas ==
+        \begin{minipage}{.5\textwidth}
+            \vspace{0.5cm}
+            \textbf{\begin{center}Control de mesas. CASO 2: Mesas ocupadas\end{center}}
+            \vspace{0.5cm}
+
+            Las mesas ocupadas se pueden apreciar por su fondo en rojo y el pedido que se debe en su interior.
+
+            Para liberarla solo hay que clicar en el \textbf{botón azul} de cobrar
+    
+        \end{minipage}
+        \hspace{1cm}
+        \begin{minipage}{.4\textwidth}
+            \includegraphics[scale=0.1]{images/escritorio-mesas.png}
+        \end{minipage}
+
+    \newpage
+    \section{API Rest}
+
+        \subsection{Flujo de la API con las APPs}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/Diagrama-grafo.png}
+                \caption{Diagrama de grafo}
+            \end{figure}
+        
+        \newpage
+        \subsection{Componentes}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/estructura-api .png}
+                \caption{Estructura de la API}
+            \end{figure}
+
+            \newpage
+            \subsubsection{Models/}
+            Explicación de lo que son los models
+            
+            % MODELO MESA
+            \begin{tcolorbox} [colback=blue!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=Modelo Mesa]
+                \begin{lstlisting}
+    const mongoose = require('mongoose')
+    const mesaSchema = new mongoose.Schema(
+        {
+            nombre: { type: String, required: true, unique: true },
+            ocupada: { type: Boolean, default: false }
+        },
+        { versionKey: false }
+    );
+    const Mesa = mongoose.model("Mesas", mesaSchema);
+                \end{lstlisting}
+            \end{tcolorbox}
+ 
+            % MODELO PRODUCTO
+            \begin{tcolorbox}[colback=blue!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=Modelo Producto]
+                \begin{lstlisting}
+    const mongoose = require('mongoose')
+    const pedidoSchema = new mongoose.Schema(
+        {
+            precioTotal: { type: Number, required: true }
+        },
+        { versionKey: false }
+    );
+    const Pedido = mongoose.model("Pedidos", pedidoSchema);
+                \end{lstlisting}
+            \end{tcolorbox}
+            
+
+    \newpage
+    \section{Conclusión}
+
+
+    % ================================= BIBLIOGRAFÍA =========================================
+    \newpage
+    \section{Bibliografía}
+        \begin{itemize}
+            \item \textbf{Formatos de imagen de Latex}: \url{https://manualdelatex.com/tutoriales/figuras}
+            \item \textbf{Imagen al lado de texto en Latex}: \url{https://foro.rinconmatematico.com/index.php?topic=114810.0}
+            \item \textbf{Texto al rededor de figuras en Lated}: \url{https://es.wikibooks.org/wiki/Manual_de_LaTeX/Inclusi%C3%B3n_de_gr%C3%A1ficos/Texto_alrededor_de_figuras}
+            \item \textbf{Insertar código en el pdf}: \url{https://trspos.com/insertar-bloque-de-codigo-latex/}
+        \end{itemize}
+        
+
+
+
+
+\end{document}
