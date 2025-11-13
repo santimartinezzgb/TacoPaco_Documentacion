@@ -21,6 +21,8 @@
     \newpage
     \tableofcontents
 
+
+    % ================================= INTRODUCCIÓN =========================================
     \newpage
     \section{Introducción}
         Taco Paco es una aplicación de comida rápida en la que el cliente puede reservar su mesa, y a partir de ahí seleccionar sus productos favoritos.
@@ -29,6 +31,8 @@
         \\\\
         Ambas se conectan entre sí a través de una API Rest elaborada con express y mongoose, el último para guardar y editar los cambios en Mongo Atlas, la base de datos de la aplicación.
 
+
+    % ================================= AQRUITECTURA DE LA APP =========================================
     \newpage
     \section{Arquitectura de la app}
         \subsection*{\underline{Diagrama de flujo}}
@@ -47,12 +51,34 @@
 
         \newpage
         \subsection*{\underline{Diagrama de casos de uso}}
+            El \textbf{Diagrama de casos de uso} muestra las posibles utilizaciones de la aplicación por todos los actores*.
+
+            *\underline{Actor}: Es el cliente y el servidor, los entes que pueden darle usos a la app.
+
+            \vspace{0.5cm}
+            En este caso el diagrama contiene dos \textbf{includes} por parte del cliente, que vienen a partir de la selección de productos dentro de la carta.
+            \begin{itemize}
+                \item Realizar Pedido
+                \item Cancelar Pedido
+            \end{itemize}
+
+            Mientras que \textbf{extends} contiene uno solo por parte del Servidor:
+            \begin{itemize}
+                \item Librar mesas
+            \end{itemize}
+
+            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Includes y extends]
+                definiciones
+            \end{tcolorbox}
+
             \begin{figure}[h!]
                 \centering
-                \includegraphics[width=1.0\textwidth]{images/Diagrama-casos-de-uso.png}
+                \includegraphics[width=0.75\textwidth]{images/Diagrama-casos-de-uso.png}
                 \caption{Diagrama de casos de uso}
             \end{figure}
 
+
+    % ================================= APP MÓVIL =========================================
     \newpage
     \section{APP Móvil}
         \subsection*{Estructura de la app}
@@ -175,6 +201,7 @@
             \end{minipage}
 
         
+    % ================================= APP ESCRITORIO =========================================
     \newpage
     \section{APP Escritorio}
         % == Pantalla inicio de APP Escritorio ==
@@ -226,6 +253,8 @@
             \includegraphics[scale=0.1]{images/escritorio-mesas.png}
         \end{minipage}
 
+
+    % ================================= API REST =========================================
     \newpage
     \section{API Rest}
 
@@ -238,6 +267,7 @@
         
         \newpage
         \subsection{Componentes}
+            
             \begin{figure}[h!]
                 \centering
                 \includegraphics[width=0.9\textwidth]{images/estructura-api .png}
@@ -245,11 +275,11 @@
             \end{figure}
 
             \newpage
-            \subsubsection{Models/}
+            \subsubsection{models/}
             Explicación de lo que son los models
             
             % MODELO MESA
-            \begin{tcolorbox} [colback=blue!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=Modelo Mesa]
+            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Endpoints]
                 \begin{lstlisting}
     const mongoose = require('mongoose')
     const mesaSchema = new mongoose.Schema(
@@ -264,7 +294,7 @@
             \end{tcolorbox}
  
             % MODELO PRODUCTO
-            \begin{tcolorbox}[colback=blue!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=Modelo Producto]
+            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Endpoints]
                 \begin{lstlisting}
     const mongoose = require('mongoose')
     const pedidoSchema = new mongoose.Schema(
@@ -276,7 +306,61 @@
     const Pedido = mongoose.model("Pedidos", pedidoSchema);
                 \end{lstlisting}
             \end{tcolorbox}
-            
+
+            \subsubsection{node\_modules/}
+                Conjunto de bibliotecas de node. Cada una de ellas cumplen una función en la API:
+                \begin{itemize}
+                    \item \textbf{pnpm}: Paquete instalador de node elegido
+                    \item \textbf{dotenv}: Para la utilización de las variables de entorno guardadas en el .env
+                    \item \textbf{express}: Módulo con el que se construye la API
+                    \item \textbf{mongoose}: Módulo de Mongo que sirve para conectarse de forma sencilla a la base de datos de Mongo Atlas. A traves de los modelos creados anteriormente, se pueden guardar, actualizar y eliminar datos en la base de datos a través de los endpoints.
+                \end{itemize}
+
+            \subsubsection{server (Endpoints)}
+            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Endpoints]
+                \begin{lstlisting}
+
+app.get('/mesas', async (req, res) => {
+    try {
+        const mesas = await Mesa.find().sort({ nombre: 1 });
+        res.json(mesas);
+    } catch (err) {
+        res.json({ error: err.message });
+    }
+});
+
+
+app.put('/mesas/:nombre', async (req, res) => {
+    try {
+        console.log("Mesa ocupada:", req.body);
+
+        const nombreMesa = req.params.nombre;
+        const { ocupada } = req.body;
+
+        const mesa = await Mesa.findOneAndUpdate(
+            { nombre: nombreMesa },
+            { ocupada },
+            { new: true, upsert: true }
+        );
+    }
+});
+
+
+app.post('/pedidos', async (req, res) => {
+    try {
+        const { precioTotal } = req.body;
+        const nuevoPedido = new Pedido({ precioTotal });
+        const pedidoGuardado = await nuevoPedido.save();
+
+        console.log("Pedido guardado:", pedidoGuardado);
+        res.json(pedidoGuardado);
+    } catch (err) {
+        console.error("Error al guardar pedido:", err);
+        res.json({ error: err.message });
+    }
+});
+                \end{lstlisting}
+            \end{tcolorbox}
 
     \newpage
     \section{Conclusión}

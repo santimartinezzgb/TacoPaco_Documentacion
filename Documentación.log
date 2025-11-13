@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.14)  13 NOV 2025 18:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.14)  13 NOV 2025 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -419,12 +419,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `Documentación.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
 
  []
 
@@ -432,43 +432,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--31
 <images/Diagrama-flujo.png, id=20, 2139.995pt x 2584.65625pt>
 File: images/Diagrama-flujo.png Graphic file (type png)
 <use images/Diagrama-flujo.png>
-Package pdftex.def Info: images/Diagrama-flujo.png  used on input line 37.
+Package pdftex.def Info: images/Diagrama-flujo.png  used on input line 41.
 (pdftex.def)             Requested size: 399.21791pt x 482.13722pt.
  [4 <./images/Diagrama-flujo.png>]
 <images/Diagrama-grafo.png, id=26, 1991.44pt x 2717.15125pt>
 File: images/Diagrama-grafo.png Graphic file (type png)
 <use images/Diagrama-grafo.png>
-Package pdftex.def Info: images/Diagrama-grafo.png  used on input line 44.
+Package pdftex.def Info: images/Diagrama-grafo.png  used on input line 48.
 (pdftex.def)             Requested size: 399.21791pt x 544.7059pt.
  [5 <./images/Diagrama-grafo.png>]
 <images/Diagrama-casos-de-uso.png, id=31, 2247.39626pt x 2098.84125pt>
 File: images/Diagrama-casos-de-uso.png Graphic file (type png)
 <use images/Diagrama-casos-de-uso.png>
-Package pdftex.def Info: images/Diagrama-casos-de-uso.png  used on input line 52.
-(pdftex.def)             Requested size: 443.57848pt x 414.2524pt.
+Package pdftex.def Info: images/Diagrama-casos-de-uso.png  used on input line 76.
+(pdftex.def)             Requested size: 332.68385pt x 310.68129pt.
  [6 <./images/Diagrama-casos-de-uso.png>] [7]
 <images/pantalla_principal.png, id=43, 436.63126pt x 928.46875pt>
 File: images/pantalla_principal.png Graphic file (type png)
 <use images/pantalla_principal.png>
-Package pdftex.def Info: images/pantalla_principal.png  used on input line 121.
+Package pdftex.def Info: images/pantalla_principal.png  used on input line 147.
 (pdftex.def)             Requested size: 130.99039pt x 278.54277pt.
 
-Overfull \hbox (3.5366pt too wide) in paragraph at lines 109--123
+Overfull \hbox (3.5366pt too wide) in paragraph at lines 135--149
 []$[]$   $[]$ 
  []
 
 <images/pantalla_mesas.png, id=44, 436.63126pt x 928.46875pt>
 File: images/pantalla_mesas.png Graphic file (type png)
 <use images/pantalla_mesas.png>
-Package pdftex.def Info: images/pantalla_mesas.png  used on input line 126.
+Package pdftex.def Info: images/pantalla_mesas.png  used on input line 152.
 (pdftex.def)             Requested size: 130.99039pt x 278.54277pt.
 <images/pantalla_mesas_ocupadas.png, id=45, 434.62375pt x 928.46875pt>
 File: images/pantalla_mesas_ocupadas.png Graphic file (type png)
 <use images/pantalla_mesas_ocupadas.png>
-Package pdftex.def Info: images/pantalla_mesas_ocupadas.png  used on input line 155.
+Package pdftex.def Info: images/pantalla_mesas_ocupadas.png  used on input line 181.
 (pdftex.def)             Requested size: 130.38812pt x 278.54277pt.
 
-Overfull \hbox (3.5366pt too wide) in paragraph at lines 144--157
+Overfull \hbox (3.5366pt too wide) in paragraph at lines 170--183
 []$[]$   $[]$ 
  []
 
@@ -476,62 +476,68 @@ Overfull \hbox (3.5366pt too wide) in paragraph at lines 144--157
 <images/pantalla_carta.png, id=51, 434.62375pt x 928.46875pt>
 File: images/pantalla_carta.png Graphic file (type png)
 <use images/pantalla_carta.png>
-Package pdftex.def Info: images/pantalla_carta.png  used on input line 160.
+Package pdftex.def Info: images/pantalla_carta.png  used on input line 186.
 (pdftex.def)             Requested size: 130.38812pt x 278.54277pt.
  [9 <./images/pantalla_mesas_ocupadas.png> <./images/pantalla_carta.png>]
 <images/escritorio-principal.png, id=57, 1726.45pt x 888.31876pt>
 File: images/escritorio-principal.png Graphic file (type png)
 <use images/escritorio-principal.png>
-Package pdftex.def Info: images/escritorio-principal.png  used on input line 196.
+Package pdftex.def Info: images/escritorio-principal.png  used on input line 223.
 (pdftex.def)             Requested size: 172.6551pt x 88.83707pt.
 
-Overfull \hbox (3.5366pt too wide) in paragraph at lines 181--198
+Overfull \hbox (3.5366pt too wide) in paragraph at lines 208--225
 []$[]$   $[]$ 
  []
 
 <images/escritorio-mesas.png, id=58, 1723.43875pt x 885.3075pt>
 File: images/escritorio-mesas.png Graphic file (type png)
 <use images/escritorio-mesas.png>
-Package pdftex.def Info: images/escritorio-mesas.png  used on input line 210.
+Package pdftex.def Info: images/escritorio-mesas.png  used on input line 237.
 (pdftex.def)             Requested size: 172.35397pt x 88.53593pt.
 
-Overfull \hbox (3.5366pt too wide) in paragraph at lines 200--212
+Overfull \hbox (3.5366pt too wide) in paragraph at lines 227--239
 []$[]$   $[]$ 
  []
 
 File: images/escritorio-mesas.png Graphic file (type png)
 <use images/escritorio-mesas.png>
-Package pdftex.def Info: images/escritorio-mesas.png  used on input line 226.
+Package pdftex.def Info: images/escritorio-mesas.png  used on input line 253.
 (pdftex.def)             Requested size: 172.35397pt x 88.53593pt.
 
-Overfull \hbox (3.5366pt too wide) in paragraph at lines 214--228
+Overfull \hbox (3.5366pt too wide) in paragraph at lines 241--255
 []$[]$   $[]$ 
  []
 
 [10 <./images/escritorio-principal.png> <./images/escritorio-mesas.png>]
 File: images/Diagrama-grafo.png Graphic file (type png)
 <use images/Diagrama-grafo.png>
-Package pdftex.def Info: images/Diagrama-grafo.png  used on input line 235.
+Package pdftex.def Info: images/Diagrama-grafo.png  used on input line 264.
 (pdftex.def)             Requested size: 399.21791pt x 544.7059pt.
  [11]
 <images/estructura-api .png, id=67, 730.73pt x 607.26875pt>
 File: images/estructura-api .png Graphic file (type png)
 <use images/estructura-api .png>
-Package pdftex.def Info: images/estructura-api .png  used on input line 243.
+Package pdftex.def Info: images/estructura-api .png  used on input line 273.
 (pdftex.def)             Requested size: 399.21791pt x 331.7657pt.
  [12 <./images/estructura-api .png>]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 256.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 286.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 256.
- [13] [14]
-Overfull \hbox (4.531pt too wide) in paragraph at lines 291--292
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 286.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 323.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 323.
+ [13] [14] [15]
+Overfull \hbox (4.531pt too wide) in paragraph at lines 375--376
 []\OT1/cmr/bx/n/10 Texto al re-de-dor de fi-gu-ras en La-ted\OT1/cmr/m/n/10 : $\OT1/cmtt/m/n/10 https : / / es . wikibooks . org / wiki / Manual _ de _ LaTeX /
  []
 
-[15] (./Documentación.aux
+[16] (./Documentación.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -541,18 +547,18 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16908 strings out of 476120
- 331891 string characters out of 5793656
- 1945975 words of memory out of 5000000
- 38697 multiletter control sequences out of 15000+600000
+ 16938 strings out of 476120
+ 332461 string characters out of 5793656
+ 1970975 words of memory out of 5000000
+ 38724 multiletter control sequences out of 15000+600000
  562827 words of font info for 52 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  83i,7n,93p,503b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/santi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Documentación.pdf (15 pages, 1216621 bytes).
+ </home/santi/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Documentación.pdf (16 pages, 1229711 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
