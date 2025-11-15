@@ -1,13 +1,22 @@
-\babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Introducción}{3}{}%
 \contentsline {section}{\numberline {2}Arquitectura de la app}{4}{}%
-\contentsline {section}{\numberline {3}APP Móvil}{7}{}%
-\contentsline {section}{\numberline {4}APP Escritorio}{10}{}%
+\contentsline {subsection}{\numberline {2.1}Diagrama de flujo}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Diagrama de casos de uso}{5}{}%
+\contentsline {section}{\numberline {3}APP Móvil}{6}{}%
+\contentsline {section}{\numberline {4}APP Escritorio}{8}{}%
+\contentsline {subsection}{\numberline {4.1}Inicio app}{8}{}%
+\contentsline {subsection}{\numberline {4.2}Control de mesas. CASO 1: Todas las mesas libres}{9}{}%
+\contentsline {subsection}{\numberline {4.3}Control de mesas. CASO 2: Mesas ocupadas}{10}{}%
 \contentsline {section}{\numberline {5}API Rest}{11}{}%
 \contentsline {subsection}{\numberline {5.1}Flujo de la API con las APPs}{11}{}%
 \contentsline {subsection}{\numberline {5.2}Componentes}{12}{}%
 \contentsline {subsubsection}{\numberline {5.2.1}models/}{13}{}%
 \contentsline {subsubsection}{\numberline {5.2.2}node\_modules/}{13}{}%
-\contentsline {subsubsection}{\numberline {5.2.3}server (Endpoints)}{14}{}%
-\contentsline {section}{\numberline {6}Conclusión}{15}{}%
-\contentsline {section}{\numberline {7}Bibliografía}{16}{}%
+\contentsline {subsubsection}{\numberline {5.2.3}server (Endpoints)}{13}{}%
+\contentsline {section}{\numberline {6}Problemas encontrados}{14}{}%
+\contentsline {subsection}{\numberline {6.1}Conexión entre las APPs y la API}{14}{}%
+\contentsline {subsection}{\numberline {6.2}Calls}{14}{}%
+\contentsline {subsection}{\numberline {6.3}Organización inicial}{14}{}%
+\contentsline {subsection}{\numberline {6.4}Desarrollo de frontend}{14}{}%
+\contentsline {section}{\numberline {7}Conclusión}{15}{}%
+\contentsline {section}{\numberline {8}Bibliografía}{16}{}%
