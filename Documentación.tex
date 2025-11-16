@@ -2,20 +2,46 @@
 \usepackage{graphicx}
 \usepackage[margin=3cm]{geometry}
 \usepackage{subcaption}
+
 \usepackage[utf8]{inputenc}
-\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage{href-ul}
 \usepackage{tcolorbox}
 \usepackage{listings}
+\usepackage{tocloft}
 
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\cfttoctitlefont}{\Huge\bfseries}
 
+\renewcommand{\cftdotsep}{1}
 
-
-\title{Documentación Taco Paco}
-\author{Santi Martínez}
-\date{\today}
 
 \begin{document}
-    \maketitle
+        % ================================= PORTADA =========================================
+    \begin{titlepage}
+        \centering
+
+        {\Large \textbf{Programación Multimedia y Dispositivos Móviles}\par}
+        
+        \vspace{2cm}
+        {\Huge \textbf{Documentación Taco Paco}\par}
+        \vspace{0.5cm}
+        {\LARGE Aplicaciones de Móvil y Escritorio\par}
+        
+        \vspace{2cm}
+        \noindent\rule{10cm}{0.4pt}
+        
+        \vspace{2cm}
+        {\Large \textbf{Autor:}\par}
+        \vspace{0.3cm}
+        {\large Santi Martínez\par}
+        
+        \vspace{10cm}
+        {\large \today}
+        
+    \end{titlepage}
     \newpage
     \tableofcontents
 
@@ -26,7 +52,7 @@
         Taco Paco es una aplicación de comida rápida en la que el cliente puede reservar su mesa, y a partir de ahí seleccionar sus productos favoritos.
 
         \vspace{0.5cm}
-        \begin{tcolorbox}[colback=green!2!white,colframe=green!50!black,fonttitle=\bfseries,title=Historia de Taco Paco]
+        \begin{tcolorbox}[colback=green!2!white,colframe=green!50!black,fonttitle=\bfseries]
             La historia de Taco Paco comienza en 1998, cuando dos amigos decidieron abrir un pequeño restaurante de comida rápida en el centro de la ciudad. Con el tiempo, el restaurante fue ganando popularidad gracias a su deliciosa comida y su ambiente acogedor. Hoy en día, Taco Paco es un referente en la comida rápida de la ciudad, y su aplicación móvil es una herramienta esencial para sus clientes.
         \end{tcolorbox}
 
@@ -54,9 +80,13 @@
     \newpage
     \section{Arquitectura de la app}
         \subsection{Diagrama de flujo}
+
+        El diagrama de flujo señala, como su propio nombre indica, el flujo estándar de la aplicación vista desde la perspectiva de un cliente, es decir, la finalidad que tiene el programa para el público.
+
+
             \begin{figure}[h!]
                 \centering
-                \includegraphics[width=0.9\textwidth]{images/Diagrama-flujo.png}
+                \includegraphics[width=0.7\textwidth]{images/Diagrama-FLUJO.png}
                 \caption{Diagrama de flujo}
             \end{figure}
         
@@ -82,7 +112,7 @@
 
 
             \vspace{0.5cm}
-            \begin{tcolorbox}[colback=green!3!white,colframe=green!50!black,fonttitle=\bfseries,title=Includes y extends]
+            \begin{tcolorbox}[colback=green!3!white,colframe=green!50!black,fonttitle=\bfseries]
                 \textbf{Include}.
                 Permite reutilizar funcionalidad común entre casos de uso, insertando obligatoriamente un caso dentro de otro para evitar duplicación.
 
@@ -97,11 +127,69 @@
             \end{figure}
 
 
+        \subsection{Especificaciones Técnicas}
+
+            \vspace{0.5cm}
+            \begin{tcolorbox}[colback=green!3!white,colframe=green!50!black,fonttitle=\bfseries]
+                En esta sección se detallan las tecnologías, versiones y herramientas utilizadas en el desarrollo del proyecto Taco Paco, incluyendo frameworks, librerías y entornos de cada componente del sistema.
+            \end{tcolorbox}
+
+            \subsubsection*{\underline{Aplicación Móvil}}
+            \begin{itemize}
+                \item \textbf{Lenguaje:} Java 17
+                \item \textbf{SDK Android:} API 34 (Android 14)
+                \item \textbf{Librerías principales:}
+                \begin{itemize}
+                    \item Retrofit - Consumo API REST
+                    \item Gson - Procesamiento JSON
+                \end{itemize}
+            \end{itemize}
+
+            \subsubsection*{\underline{Aplicación Escritorio}}
+            \begin{itemize}
+                \item \textbf{Lenguaje:} Java 17
+                \item \textbf{Framework:} JavaFX 21.0.1
+                \item \textbf{Librerías principales:}
+                \begin{itemize}
+                    \item Retrofit - Consumo API REST
+                    \item Gson - Procesamiento JSON
+                \end{itemize}
+            \end{itemize}
+
+            \subsubsection*{\underline{API REST}}
+            \begin{itemize}
+                \item \textbf{Runtime:} Node.js
+                \item \textbf{Framework:} Express.js
+                \item \textbf{Base de Datos:} MongoDB (Atlas Cloud)
+                \item \textbf{ODM:} Mongoose
+                \item \textbf{Puerto:} 3000
+                \item \textbf{Instalador de paquetes:} pnpm
+            \end{itemize}
+
+            \subsubsection*{\underline{Herramientas de Desarrollo}}
+            \begin{itemize}
+                \item Android Studio
+                \item IntelliJ IDEA 2023.2.5
+                \item Visual Studio Code
+                \item Git
+            \end{itemize}
+
+            
+
+
     % ================================= APP MÓVIL =========================================
     \newpage
     \section{APP Móvil}
+        La aplicación de móvil está enfocada en el cliente de Taco Paco.
 
-        \subsection*{Imágenes de la app}
+        \vspace{0.5cm}
+        El cliente puede elegir en que mesa se va a sentar para comer, entre una lista de 5 mesas; tres de ellas interiores y otras dos de terraza.
+
+        \vspace{0.5cm}
+        Una vez elegida la mesa, el cliente puede elegir entre los platos de la carta y realizar el pedido o cancelarlo. En el caso de realizar un pedido, el cliente puede volver a hacer otro pedido en la misma mesa, y una vez terminado, paga y se marcha.
+
+
+        \subsection{Imágenes de la app}
 
             % == Pantalla de inicio ==
             \begin{minipage}{.5\textwidth}
@@ -121,7 +209,7 @@
 
             % == Pantalla de mesas (TODAS LIBRES) ==
             \begin{minipage}{.4\textwidth}
-                \includegraphics[scale=0.3]{images/pantalla_mesas.png}
+                \includegraphics[scale=0.35]{images/pantalla-mesas-libres.png}
             \end{minipage}
             \begin{minipage}{.5\textwidth}
                 \vspace{0.5cm}
@@ -150,7 +238,7 @@
             \end{minipage}
             \hspace{1cm}
             \begin{minipage}{.4\textwidth}
-                \includegraphics[scale=0.3]{images/pantalla_mesas_ocupadas.png}
+                \includegraphics[scale=0.35]{images/pantalla-mesas-ocupadas.png}
             \end{minipage}
 
             % == CARTA ==
@@ -172,13 +260,26 @@
                 En pantalla se encuentran los botones que llevan a los activities de sus respectivas mesas y un botón para volver al activity anterior.
             \end{minipage}
 
+            % == Pantalla de mesas (Botón de PAGAR) ==
+            \begin{minipage}{.5\textwidth}
+                \vspace{0.5cm}
+                \textbf{\begin{center}Pagar pedido/s\end{center}}
+                \vspace{0.5cm}
+
+                En esta pantalla se puede observar que aparece un botón azul de \textbf{Pagar}, el cual se presiona al finalizar la comida 
+            \end{minipage}
+            \hspace{1cm}
+            \begin{minipage}{.4\textwidth}
+                \includegraphics[scale=0.35]{images/pantalla-pagar.png}
+            \end{minipage}
+
         
     % ================================= APP ESCRITORIO =========================================
     \newpage
     \section{APP Escritorio}
+
+        \vspace{0.5cm}
         La app escritorio está diseñada para ser utilizada por el personal del establecimiento Taco Paco. Su función principal es gestionar las mesas del restaurante, permitiendo al personal ver qué mesas están ocupadas y cuáles están libres, así como tambíen tienen la facultad de limpiar las mesas y liberarlas una vez que los clientes han pagado su pedido.
-
-
 
         % == Pantalla inicio de APP Escritorio ==
         \subsection{Inicio app}
@@ -186,6 +287,7 @@
         Esta es la pantalla inicial de la app escritorio, en la que al pulsar \textbf{Entrar}, se abre el siguiente activity.
 
         Cabe decir que es una app únicamente para el establecimiento de Taco Paco, ya que sus posibles usos son:
+
         \begin{itemize}
             \item Establecer un control de qué mesas están o no disponibles
             \item En caso de que no estén disponibles, se les puede cobrar su pedido desde esta app, lo que libera a continuación la mesa
@@ -202,35 +304,58 @@
         \newpage
         \subsection{Control de mesas. CASO 1: Todas las mesas libres}
 
-        Esta pantalla es la principal de la app. Como se puede observar contiene como contenido prioritario las 5 mesas des establecimiento. En este caso no hay ninguna mesa con un pedido pendiente.
+            \vspace{0.5cm}
+            \begin{tcolorbox}[colback=green!3!white,colframe=green!50!black,fonttitle=\bfseries]
+                La pantalla principal muestra las 5 mesas, indica su estado, permite actualizar con un botón y facilita controlar disponibilidad y pedidos, optimizando el flujo del establecimiento.
+            \end{tcolorbox}
 
-        \vspace{0.5cm}
+            \vspace{0.5cm}
+            Esta pantalla es la principal de la app. Como se puede observar, contiene como contenido principal las 5 mesas del establecimiento. Cada mesa se muestra de manera clara y visual, permitiendo al trabajador identificar rápidamente su estado actual. 
+            
+            \vspace{0.5cm}
+            En este caso, no hay ninguna mesa con un pedido pendiente, lo que indica que todas las mesas están libres o que los pedidos anteriores ya han sido gestionados.
+            
+            \vspace{0.5cm}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.9\textwidth]{images/escritorio-mesas.png}
+                \caption{Todas las mesas disponibles}
+            \end{figure}
 
-        Además, en la parte superior derecha se encuentra el botón de \textbf{Actualizar}, que sirve para refrescar el estado de las mesas en caso de que haya habido algún cambio desde la app móvil.
+            \vspace{0.5cm}
+            Además, en la parte superior derecha se encuentra el botón de \textbf{Actualizar}, que sirve para refrescar el estado de las mesas en caso de que haya habido algún cambio desde la app móvil. Esto garantiza que la información mostrada esté siempre actualizada.
+            
+            \vspace{0.5cm}
+            De esta manera, los trabajadores pueden tener un control completo sobre la disponibilidad de las mesas y el progreso de los pedidos, optimizando así el flujo de trabajo dentro del establecimiento.
         
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=0.9\textwidth]{images/escritorio-mesas.png}
-            \caption{Todas las mesas disponibles}
-        \end{figure}
+
 
         % == Pantalla mesas ocupadas ==
         \newpage
         \subsection{Control de mesas. CASO 2: Mesas ocupadas}
 
+        \vspace{0.5cm}
+        \begin{tcolorbox}[colback=green!3!white,colframe=green!50!black,fonttitle=\bfseries]
+            Las \textbf{mesas rojas} indican ocupación: con pedido pendiente no se liberan; pagadas, se pueden limpiar y volver disponibles automáticamente.
+        \end{tcolorbox}
+
+        \vspace{0.5cm}
         Las mesas ocupadas se pueden apreciar por su fondo en rojo y tienen dos estados:
         \begin{itemize}
             \item \textbf{Mesa con pedido pendiente}: La mesa aparece de color rojo (ocupada) pero como el cliente todavía tiene la opción de seguir pidiendo y no ha pagado, no se puede liberar la mesa.
             \item \textbf{Mesa ocupada con pedido ya pagado}: En este caso, el cliente ya ha pagado su pedido desde la app móvil, pero el camarero no ha liberado la mesa. Al clicar en el botón \textbf{Limpiar mesa}, se libera la mesa y vuelve a estar disponible para nuevos clientes.
         \end{itemize}
-
-        Una vez limpia la mesa, esta vuelve automáticamente a estar disponible en la app móvil, sin necesidad de actualizar nada.
     
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.9\textwidth]{images/escritorio-mesas-ocupada.png}
             \caption{Mesas ocupadas en rojo}
         \end{figure}
+
+        Una vez que la mesa ha sido limpiada, esta vuelve automáticamente a estar disponible tanto en la app de escritorio como en la app móvil. No es necesario realizar ninguna actualización manual, lo que garantiza que la información se mantenga sincronizada en tiempo real y facilita un flujo de trabajo más ágil para los trabajadores del establecimiento.
+        
+        \vspace{0.5cm}
+        Esto permite que los clientes puedan ocuparla de inmediato, evitando conflictos y mejorando la eficiencia en la gestión entre aplicaciones.
 
 
     % ================================= API REST =========================================
@@ -249,42 +374,15 @@
             
             \begin{figure}[h!]
                 \centering
-                \includegraphics[width=0.9\textwidth]{images/estructura-api .png}
+                \includegraphics[width=0.5\textwidth]{images/estructura-api.png}
                 \caption{Estructura de la API}
             \end{figure}
 
-            \newpage
             \subsubsection{models/}
-            Explicación de lo que son los models
-            
-            % MODELO MESA
-            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Endpoints]
-                \begin{lstlisting}
-    const mongoose = require('mongoose')
-    const mesaSchema = new mongoose.Schema(
-        {
-            nombre: { type: String, required: true, unique: true },
-            ocupada: { type: Boolean, default: false }
-        },
-        { versionKey: false }
-    );
-    const Mesa = mongoose.model("Mesas", mesaSchema);
-                \end{lstlisting}
-            \end{tcolorbox}
- 
-            % MODELO PRODUCTO
-            \begin{tcolorbox}[colback=green!2!white,colframe=green!65!black,fonttitle=\bfseries,title=Endpoints]
-                \begin{lstlisting}
-    const mongoose = require('mongoose')
-    const pedidoSchema = new mongoose.Schema(
-        {
-            precioTotal: { type: Number, required: true }
-        },
-        { versionKey: false }
-    );
-    const Pedido = mongoose.model("Pedidos", pedidoSchema);
-                \end{lstlisting}
-            \end{tcolorbox}
+                \begin{itemize}
+                    \item \textbf{Mesa.js}: Modelo de mesa, contiene los atributos que tiene una mesa en la base de datos.
+                    \item \textbf{Pedido.js}: Modelo de pedido, contiene los atributos que tiene un pedido en la base de datos.
+                \end{itemize}
 
             \subsubsection{node\_modules/}
                 Conjunto de bibliotecas de node. Cada una de ellas cumplen una función en la API:
@@ -295,19 +393,126 @@
                     \item \textbf{mongoose}: Módulo de Mongo que sirve para conectarse de forma sencilla a la base de datos de Mongo Atlas. A traves de los modelos creados anteriormente, se pueden guardar, actualizar y eliminar datos en la base de datos a través de los endpoints.
                 \end{itemize}
 
-            \subsubsection{server (Endpoints)}
+            \subsubsection{Endpoints}
+                Son los puntos en los que la API, a través de una llamada desde la app, edita, lista, guarda o borra datos de la base de datos.
+
+                \vspace{0.5cm}
+                Endpoints de mesas
+                \begin{itemize}
+                    \item GET: Para listar las mesas
+                    \item PUT: Para editar las mesas en la base de datos
+                \end{itemize}
+                Endpoints de pedidos
+                \begin{itemize}
+                    \item GET: Para listar los pedidos
+                    \item POST: Para guardar los pedidos en la base de datos
+                \end{itemize}
+
+
+        \newpage
+        \subsection{Base de Datos}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.5\textwidth]{images/logo-mongo.png}
+            \end{figure}
+            El sistema utiliza MongoDB Atlas como gestor de base de datos en la nube, lo que va a otorgar una sincronización de datos entre las aplicaciones móvil y de escritorio a través de la API REST.
+
+            \subsubsection{Colecciones}
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.3\textwidth]{images/captura-mongo.png}
+                \end{figure}
+
+            \subsubsection{Estructura de colecciones}
+
+                \vspace{0.5cm}
+                \textbf{\underline{Mesas}}
+                Almacena el estado y la información de cada mesa de Taco Paco. Sus atributos son:
+
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{images/mesa-mongo.png}
+                \end{figure}
+
+                \begin{itemize}
+                    \item \textbf{\_id}: Id que otorga Mongo
+                    \item \textbf{ocupada}: Indica si la mesa está siendo utilizada por un cliente
+                    \item \textbf{a\_Pagar}: Señala si el cliente ya ha realizado el pago de su pedido
+                \end{itemize}
+
+                \vspace{0.5cm}
+                \textbf{\underline{Pedidos}}
+                Registra todos los pedidos realizados por los clientes. Sus atributos son:
+
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=0.5\textwidth]{images/pedido-mongo.png}
+                \end{figure}
+
+                \begin{itemize}
+                    \item \textbf{\_id}: Id que otorga Mongo
+                    \item \textbf{preciototal}: Precio total del pedido
+                \end{itemize}
 
 
 
+
+% ================================= FUTURAS MEJORAS =======================================
+    \newpage
+    \section{Futuras mejoras}
+    
+        El proyecto Taco Paco cumple con los objetivos establecidos, pero hay varios aspectos en los que se puede escalar a algo mucho más completo.
+        
+        \subsection*{\underline{Funcionalidad}}
+        
+            \begin{itemize}
+                \item \textbf{Sistema de autenticación:} Login diferenciado para clientes, camareros y administradores
+                \item \textbf{Gestión de menú:} Permitir añadir, editar y eliminar productos desde la app de escritorio
+            \end{itemize}
+        
+        \subsection*{\underline{Aspectos técnicos}}
+        
+            \begin{itemize}
+                \item \textbf{Evitar el estar tiempo inactivo con mesa ocupada:} Implementar timeout automático tras inactividad
+            \end{itemize}
+        
+        \subsection*{\underline{Interfaz de usuario}}
+        
+            \begin{itemize}
+                \item \textbf{Modo oscuro:} Implementar tema claro/oscuro
+                \item \textbf{Responsive:} Adaptación a tablets y diferentes resoluciones
+                \item \textbf{Varios idiomas:} Soporte para varios idiomas
+            \end{itemize}
+        
+        \subsection*{\underline{Nuevas funcionalidades}}
+        
+            \begin{itemize}
+                \item \textbf{Valoraciones:} Sistema de reseñas con valoraciones de la experiencia y comida
+                \item \textbf{Descuentos:} Puntos y descuentos para clientes frecuentes
+                \item \textbf{Gestión de inventario:} Control de stock e ingredientes
+            \end{itemize}
+
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.5\textwidth]{images/idea.jpg}
+            \end{figure}
 
 
     % ================================= PROBLEMAS ENCONTRADOS =======================================
     \newpage
     \section{Problemas encontrados}
+        \subsection{Mesas ocupadas permanentes}
+            Casi rematando el proyecto me dí cuenta de que si el usuario entraba en una mesa, y este cerraba la app, la mesa en la app de escritorio quedaba marcada como ocupada, ya que ni se llegó a cancelar ni se hizo pedido.
+
+            Para solucionar este "limbo" estuve viendo varias funciones que trabajan sobre los activities como onPause(), onStop(), onDestroy(),... pero me rompían el programa, ya que cada notificación saliente que aparece en el programa la interpretaba como una pausa o parón, y por como lo utilizaba me rompía la base de datos.
+
+            \vspace{0.5cm}
+            \textbf{ACLARACIÓN}: Existe un botón de \underline{Reiniciar mesas} en la pantalla de escritorio, pero no formaría parte de la app final, ya que sirve para mejorar la exposición del proyecto, en el sentido de que si sales del simulador de Android, la mesa se queda colgada; y por esta razón agregué esta funionalidad, para poder restablecer las mesas (mediante confirmación se seguridad) y seguir con la presentación
+
         \subsection{Conexión entre las APPs y la API}
             Uno de los principales problemas encontrados fue la conexión entre las aplicaciones y la API Rest. Al principio, iba más o menos todo bien, el problema llegó a raíz de un mal planeamiento inicial de la arquitectura de la app.
 
-            \vspace{0.5cm}
+            \vspace{0.3cm}
             Al tener que modificar los modelos de \textbf{mesa} y \textbf{pedido} varias veces, se generaron conflictos entre las aplicaciones y la API, ya que por ejemplo, al principio la clase \textbf{mesa} no tenía el atributo \textbf{a\_pagar}, lo que provocaba que el botón de \textbf{Limpiar mesa} no funcionara correctamente.
 
         \subsection{Calls}
@@ -319,9 +524,12 @@
 
         \subsection{Desarrollo de frontend}
             Pese a que a mi parecer he mejorado un poco a nivel interfaz gráfica, sigue siengo algo que se me atasca un poco. Creo que también es cuestión de investigar un poco más.
-            \vspace{0.5cm}
+            \vspace{0.3cm}
 
             En este proyecto empecé a inspirarme en imágenes de apps en pinterest, y a partir de ahí fui cogiendo pequeñas ideas. Este paso fue algo bueno para mi, ya que me dió una perspectiva de casos reales y el cómo tendría que ser este tipo de aplicación.
+
+        \subsection{Package babel Error: Unknown option 'spanish'}
+            No me cargaba la documentación, y a través de los logs, me aparecía el mensaje del título del problema; esto me decía que mi Latex no tenía instalado el paquete de idioma español, el cual fue un paquete que implementé dentro del .tex durante el transcurso del proyecto.
 
     % ================================= CONCLUSIÓN =========================================
     \newpage
@@ -338,7 +546,9 @@
             Aunque parezca de momento que ambas las tiraría a la basura, creo que a medida que ha avanzado el curso me han ido gustando un poco más; sería la analogía a comer una hamburguesa con catarro, bien pero no me sabe.
 
             \vspace{0.5cm}
-            En cuanto a la API, es la primera vez que hago modular el tema de los modelos de mongo, y algún problema que otro me ha dado, el cual tuve que solicitar ayuda a la IA para averiguar ciertor errores que ni viendo los logs pude resolver.
+            En cuanto a la API, es la primera vez que hago modular el tema de los modelos de mongo, y algún problema que otro me ha dado, el cual tuve que solicitar ayuda a la IA para averiguar ciertos errores que ni viendo los logs pude resolver.
+
+            Y hablando de IA tambíen tuve que utilizarla en pequeñas partes que no sabía como resolver (\underline{Ejemplo}: APP Móvil $\rightarrow$ EleccionMesa.java $\rightarrow$ Líneas 89 y 90, esto para formatear una variable y dividir el resultado de postformateo y preformateo para diferentes lados)
 
             \vspace{0.5cm}
             \underline{Y ahora vamos por fin con el contenido del proyecto.}
@@ -347,7 +557,11 @@
             Me ha parecido un tema entretenido y con aplicaciones al mundo real, lo que fue parte del incentivo motivacional para llevarlo a cabo. Es la primera vez que hago dos apps para un mismo proyecto y la verdad es que ya se puede ver (bajo la perspectiva de mi nivel) ciertos resquicios de mundo real a nivel proyecto, obviamente con lmiitaciones.
 
             \vspace{0.5cm}
-            Como conclusión final decir que lo que me ha ayudado bastante a ver con perspectiva el proyecto, fue el hablar con mis compañeros de clase de problemas que nos surgían, cosa que tendría que empezar a hacer más a menudo, ya que muchas veces me encierro en mi mundo, pongo cascos y tiro para adelante.
+            Lo que me ha ayudado bastante a ver con perspectiva el proyecto, fue el hablar con mis compañeros de clase de problemas que nos surgían, cosa que tendría que empezar a hacer más a menudo, ya que muchas veces me encierro en mi mundo, pongo cascos y tiro para adelante.
+
+            \vspace{0.5cm}
+            \underline{Extra}
+            Este párrafo lo estoy escribiendo 2 días antes de presentar la defensa, un sábado a las 23.25 de la noche. El trabajo está ya terminado. Puedo decir que una vez visto todo finalizado, pese a ser un trabajo de absoluto novato, se siente un ligero orgullo personal, sobre todo por el entendimiento de cosas que hace un mes me generaban muchas dudas.
 
 
 
@@ -355,16 +569,17 @@
     \newpage
     \section{Bibliografía}
         \begin{itemize}
-            \item \textbf{Formatos de imagen de Latex}: \url{https://manualdelatex.com/tutoriales/figuras}
-            \item \textbf{Imagen al lado de texto en Latex}: \url{https://foro.rinconmatematico.com/index.php?topic=114810.0}
-            \item \textbf{Texto al rededor de figuras en Latex}: \url{https://es.wikibooks.org/wiki/Manual_de_LaTeX/Inclusi%C3%B3n_de_gr%C3%A1ficos/Texto_alrededor_de_figuras}
-            \item \textbf{Insertar código en el pdf}: \url{https://trspos.com/insertar-bloque-de-codigo-latex/}
-            \item \textbf{Dependencias retrofit} :\url{https://square.github.io/retrofit/download/}
-            \item \textbf{Cuadros en latex}: \url{https://www.youtube.com/watch?v=ZN2QC1pcjMI}
+            \item \textbf{Formatos de imagen en LaTeX}: \href{https://manualdelatex.com/tutoriales/figuras}{manualdelatex.com/tutoriales/figuras}
+            \item \textbf{Imagen al lado de texto en LaTeX}: \href{https://foro.rinconmatematico.com/index.php?topic=114810.0}{foro.rinconmatematico.com}
+            \item \textbf{Texto alrededor de figuras en LaTeX}: \href{https://es.wikibooks.org/wiki/Manual_de_LaTeX/Inclusi%C3%B3n_de_gr%C3%A1ficos/Texto_alrededor_de_figuras}{es.wikibooks.org}
+            \item \textbf{Insertar código en PDF}: \href{https://trspos.com/insertar-bloque-de-codigo-latex/}{trspos.com}
+            \item \textbf{Claude.ai}: \href{https://claude.ai/new}{Claude}
+            \item \textbf{Formateo de decimales en Java}: \href{https://es.stackoverflow.com/questions/156833/como-formatear-un-string-a-2-decimales-java}{es.stackoverflow.com}
+            \item \textbf{Dependencias Retrofit}: \href{https://square.github.io/retrofit/download/}{square.github.io/retrofit/download}
+            \item \textbf{Cuadros en LaTeX}: \href{https://www.youtube.com/watch?v=ZN2QC1pcjMI}{YouTube}
+            \item \textbf{Métodos \texttt{onPause()}, \texttt{onStop()}, \texttt{onDestroy()} en Android}: \href{https://developer.android.com/reference/android/app/Activity}{developer.android.com}
+
         \end{itemize}
-        
-
-
 
 
 \end{document}
